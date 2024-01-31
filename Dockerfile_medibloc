@@ -1,0 +1,53 @@
+ARG BASE_IMAGE=node:18-alpine3.18
+ARG PROJECT_NAME=web-medibloc
+
+# Stage: builder
+FROM ${BASE_IMAGE} AS builder
+
+ENV NODE_ENV=production
+ARG PROJECT_NAME
+
+WORKDIR /app
+RUN npm i -g turbo
+
+RUN apk update && apk add bash python3 build-base
+
+COPY . .
+
+RUN corepack enable && yarn -v \
+  && yarn install --inline-builds \
+    && yarn workspace ${PROJECT_NAME} add sharp \
+      && yarn workspace ${PROJECT_NAME} run build
+
+# Stage: runner
+FROM ${BASE_IMAGE} AS runner
+
+# Copying the files from the builder stage to the runner stage.
+ARG PROJECT_NAME
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+ARG PORT
+ENV PORT=${PORT:-3000}
+
+WORKDIR /app/apps/${PROJECT_NAME}
+
+RUN addgroup --system --gid 1001 nodejs \
+  && adduser --system --uid 1001 nextjs \
+  && chown -R nextjs:nodejs /home/nextjs /app
+
+COPY --chown=nextjs:nodejs --from=builder \
+  /app/package.json /app/.pnp.* /app/.yarnrc.yml /app/yarn.lock \
+  ../../
+COPY --chown=nextjs:nodejs --from=builder \
+  /app/.yarn/ \
+  ../../.yarn/
+COPY --chown=nextjs:nodejs --from=builder \
+  /app/apps/${PROJECT_NAME}/ /app/apps/${PROJECT_NAME}/ \
+  ./
+COPY --chown=nextjs:nodejs --from=builder \
+  /app/packages/ /app/packages/
+
+# Don't run production as root
+USER nextjs
+
+CMD yarn next start -p ${PORT}

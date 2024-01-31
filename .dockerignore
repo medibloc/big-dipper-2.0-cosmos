@@ -70,5 +70,5 @@ playwright/
 docker-compose.yml
 LICENSE
 
-*Dockerfile*
+Dockerfile
 .dockerignore
