@@ -208,7 +208,7 @@
   "keplr": "{\"chainId\":\"desmos-mainnet\",\"chainName\":\"Desmos\",\"chainSymbolImageUrl\":\"https://raw.githubusercontent.com/chainapsis/keplr-chain-registry/main/images/desmos-mainnet/chain.png\",\"rpc\":\"https://rpc.mainnet.desmos.network\",\"rest\":\"https://api.mainnet.desmos.network\",\"nodeProvider\":{\"name\":\"Forbole\",\"email\":\"info@forbole.com\",\"website\":\"https://www.forbole.com\"},\"bip44\":{\"coinType\":852},\"bech32Config\":{\"bech32PrefixAccAddr\":\"desmos\",\"bech32PrefixAccPub\":\"desmospub\",\"bech32PrefixValAddr\":\"desmosvaloper\",\"bech32PrefixValPub\":\"desmosvaloperpub\",\"bech32PrefixConsAddr\":\"desmosvalcons\",\"bech32PrefixConsPub\":\"desmosvalconspub\"},\"currencies\":[{\"coinDenom\":\"DSM\",\"coinMinimalDenom\":\"udsm\",\"coinDecimals\":6,\"coinGeckoId\":\"desmos\"}],\"feeCurrencies\":[{\"coinDenom\":\"DSM\",\"coinMinimalDenom\":\"udsm\",\"coinDecimals\":6,\"coinGeckoId\":\"desmos\",\"gasPriceStep\":{\"low\":0.01,\"average\":0.03,\"high\":0.05}}],\"stakeCurrency\":{\"coinDenom\":\"DSM\",\"coinMinimalDenom\":\"udsm\",\"coinDecimals\":6,\"coinGeckoId\":\"desmos\"},\"features\":[]}",
   "chains": [
     {
-      "network": "medibloc-hygieia-9",
+      "network": "hygieia-9",
       "chainType": "Testnet",
       "genesis": {
         "time": "2022-10-24T08:00:00",
@@ -228,8 +228,38 @@
         }
       },
       "endpoints": {
-        "graphql": "http://127.0.0.1:8080/v1/graphql",
-        "graphqlWebsocket": "ws://127.0.0.1:8080/v1/graphql",
+        "graphql": "https://testnet-explorer.gopanacea.org/v1/graphql",
+        "graphqlWebsocket": "wss://testnet-explorer.gopanacea.org/v1/graphql",
+        "publicRpcWebsocket": "wss://testnet-rpc.gopanacea.org:443/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    },
+    {
+      "network": "panacea",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2022-10-24T08:00:00",
+        "height": 7942286
+      },
+      "prefix": {
+        "consensus": "panaceavalcons",
+        "validator": "panaceavaloper",
+        "account": "panacea"
+      },
+      "primaryTokenUnit": "umed",
+      "votingPowerTokenUnit": "umed",
+      "tokenUnits": {
+        "udaric": {
+          "display": "umed",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://explorer.gopanacea.org/v1/graphql",
+        "graphqlWebsocket": "wss://explorer.gopanacea.org/v1/graphql",
         "publicRpcWebsocket": "wss://rpc.gopanacea.org:443/websocket"
       },
       "marketing": {
