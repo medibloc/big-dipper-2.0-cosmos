@@ -222,7 +222,7 @@
       "primaryTokenUnit": "umed",
       "votingPowerTokenUnit": "umed",
       "tokenUnits": {
-        "udaric": {
+        "umed": {
           "display": "umed",
           "exponent": 6
         }
@@ -252,7 +252,7 @@
       "primaryTokenUnit": "umed",
       "votingPowerTokenUnit": "umed",
       "tokenUnits": {
-        "udaric": {
+        "umed": {
           "display": "umed",
           "exponent": 6
         }
