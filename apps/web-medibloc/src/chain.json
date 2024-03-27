@@ -219,11 +219,11 @@
         "validator": "panaceavaloper",
         "account": "panacea"
       },
-      "primaryTokenUnit": "umed",
-      "votingPowerTokenUnit": "umed",
+      "primaryTokenUnit": "med",
+      "votingPowerTokenUnit": "med",
       "tokenUnits": {
-        "umed": {
-          "display": "umed",
+        "med": {
+          "display": "med",
           "exponent": 6
         }
       },
