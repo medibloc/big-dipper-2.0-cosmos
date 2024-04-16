@@ -208,8 +208,8 @@
   "keplr": "",
   "chains": [
     {
-      "network": "panacea-3",
-      "chainType": "Mainnet",
+      "network": "hygieia-1",
+      "chainType": "Testnet",
       "genesis": {
         "time": "2021-01-05T14:30:00Z",
         "height": 1
@@ -228,9 +228,9 @@
         }
       },
       "endpoints": {
-        "graphql": "https://explorer.gopanacea.org/v1/graphql",
-        "graphqlWebsocket": "wss://explorer.gopanacea.org/v1/graphql",
-        "publicRpcWebsocket": "wss://rpc.gopanacea.org:443/websocket"
+        "graphql": "https://testnet-explorer.gopanacea.org/v1/graphql",
+        "graphqlWebsocket": "wss://testnet-explorer.gopanacea.org/v1/graphql",
+        "publicRpcWebsocket": "wss://testnet-rpc.gopanacea.org:443/websocket"
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",
